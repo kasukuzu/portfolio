@@ -1,0 +1,472 @@
+:root {
+  --bg: #fffaf8;
+  --surface: rgba(255, 255, 255, 0.82);
+  --surface-strong: #ffffff;
+  --text: #221a18;
+  --muted: #6f625d;
+  --line: rgba(145, 80, 54, 0.14);
+  --accent: #da4b2b;
+  --accent-strong: #b83118;
+  --accent-soft: #fff0e7;
+  --shadow: 0 22px 60px rgba(126, 50, 25, 0.12);
+  --radius-lg: 28px;
+  --radius-md: 20px;
+  --radius-sm: 14px;
+  --container: min(1120px, calc(100% - 40px));
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  color: var(--text);
+  font-family: "Avenir Next", "Hiragino Sans", "Yu Gothic", "Noto Sans JP",
+    sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(255, 151, 98, 0.18), transparent 35%),
+    radial-gradient(circle at 85% 18%, rgba(218, 75, 43, 0.12), transparent 24%),
+    linear-gradient(180deg, #fffdfb 0%, var(--bg) 42%, #fff7f2 100%);
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.page-shell {
+  position: relative;
+  overflow: hidden;
+}
+
+.page-shell::before,
+.page-shell::after {
+  content: "";
+  position: absolute;
+  inset: auto;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page-shell::before {
+  top: 120px;
+  right: -120px;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 190, 135, 0.24), transparent 68%);
+}
+
+.page-shell::after {
+  top: 560px;
+  left: -120px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(218, 75, 43, 0.1), transparent 72%);
+}
+
+.container {
+  width: var(--container);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.site-header {
+  padding: 26px 0 10px;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 18px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 18px 40px rgba(124, 71, 33, 0.08);
+}
+
+.site-logo {
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.site-nav a {
+  padding: 10px 16px;
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.96rem;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  color: var(--accent-strong);
+  background: rgba(255, 240, 231, 0.95);
+  transform: translateY(-1px);
+}
+
+.hero-section {
+  padding: 42px 0 54px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+  gap: 28px;
+  align-items: stretch;
+}
+
+.hero-copy,
+.hero-panel,
+.work-card,
+.about-panel,
+.contact-panel {
+  border: 1px solid rgba(255, 255, 255, 0.86);
+  background: var(--surface);
+  backdrop-filter: blur(16px);
+  box-shadow: var(--shadow);
+}
+
+.hero-copy {
+  padding: clamp(32px, 5vw, 56px);
+  border-radius: calc(var(--radius-lg) + 6px);
+}
+
+.section-kicker {
+  margin: 0 0 12px;
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.hero-copy h1,
+.section-heading h2 {
+  margin: 0;
+  font-family: "Avenir Next", "Hiragino Kaku Gothic ProN", "Yu Gothic",
+    sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+}
+
+.hero-copy h1 {
+  font-size: clamp(2.8rem, 7vw, 5rem);
+}
+
+.hero-description {
+  max-width: 30rem;
+  margin: 20px 0 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 2vw, 1.16rem);
+}
+
+.hero-actions {
+  margin-top: 32px;
+}
+
+.primary-button,
+.card-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.primary-button {
+  padding: 0 24px;
+  background: linear-gradient(135deg, #f26c3a 0%, var(--accent) 48%, #ba341b 100%);
+  color: #ffffff;
+  box-shadow: 0 16px 28px rgba(218, 75, 43, 0.24);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.primary-button:hover,
+.primary-button:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 34px rgba(218, 75, 43, 0.28);
+}
+
+.hero-panel {
+  display: grid;
+  gap: 18px;
+  padding: 22px;
+  border-radius: calc(var(--radius-lg) + 6px);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 247, 242, 0.92)),
+    var(--surface);
+}
+
+.hero-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  background: var(--surface-strong);
+}
+
+.hero-card::after {
+  content: "";
+  position: absolute;
+  inset: auto -42px -42px auto;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(242, 108, 58, 0.16), transparent 70%);
+}
+
+.hero-card-large {
+  padding: 28px;
+}
+
+.hero-card-large strong {
+  display: block;
+  margin-top: 10px;
+  font-size: 1.3rem;
+}
+
+.hero-card-large p,
+.hero-card-small p {
+  margin: 12px 0 0;
+  color: var(--muted);
+}
+
+.hero-card-label {
+  display: inline-flex;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.hero-card-small {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 22px;
+}
+
+.dot {
+  flex: 0 0 auto;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f18657, var(--accent));
+  box-shadow: 0 0 0 8px rgba(242, 108, 58, 0.12);
+}
+
+.content-section {
+  padding: 46px 0;
+}
+
+.alt-section {
+  padding-top: 24px;
+}
+
+.section-heading {
+  max-width: 700px;
+  margin-bottom: 26px;
+}
+
+.section-heading h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.section-heading p:last-child {
+  margin: 14px 0 0;
+  color: var(--muted);
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.work-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 300px;
+  padding: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.card-accent {
+  height: 6px;
+  background: linear-gradient(90deg, #ffb36b 0%, #f26c3a 48%, #c6361b 100%);
+}
+
+.card-content {
+  flex: 1;
+  padding: 24px 24px 18px;
+}
+
+.card-tag {
+  margin: 0 0 10px;
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.work-card h3 {
+  margin: 0;
+  font-size: 1.45rem;
+  line-height: 1.2;
+}
+
+.work-card p:last-child {
+  margin: 14px 0 0;
+  color: var(--muted);
+}
+
+.card-button {
+  width: fit-content;
+  margin: 0 24px 24px;
+  padding: 0 16px;
+  border: 1px solid rgba(218, 75, 43, 0.16);
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+}
+
+.about-panel,
+.contact-panel {
+  padding: clamp(24px, 4vw, 36px);
+  border-radius: var(--radius-lg);
+}
+
+.about-panel p,
+.contact-panel p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.02rem;
+}
+
+.about-panel p + p {
+  margin-top: 16px;
+}
+
+.site-footer {
+  padding: 18px 0 40px;
+}
+
+.site-footer p {
+  margin: 0;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width: 920px) {
+  .site-header {
+    padding-top: 18px;
+  }
+
+  .header-inner {
+    border-radius: 28px;
+  }
+
+  .hero-grid,
+  .works-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-section {
+    padding-top: 26px;
+  }
+
+  .hero-copy h1 {
+    max-width: 10ch;
+  }
+}
+
+@media (max-width: 640px) {
+  :root {
+    --container: min(100% - 28px, 1120px);
+  }
+
+  body {
+    line-height: 1.65;
+  }
+
+  .header-inner {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 18px;
+  }
+
+  .site-nav {
+    justify-content: flex-start;
+  }
+
+  .site-nav a {
+    padding: 8px 12px;
+  }
+
+  .hero-copy,
+  .hero-panel,
+  .about-panel,
+  .contact-panel {
+    border-radius: 24px;
+  }
+
+  .hero-copy {
+    padding: 28px 24px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(2.4rem, 13vw, 3.4rem);
+  }
+
+  .work-card {
+    min-height: auto;
+  }
+
+  .card-content {
+    padding: 22px 20px 16px;
+  }
+
+  .card-button {
+    margin: 0 20px 20px;
+  }
+}
