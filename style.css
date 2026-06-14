@@ -207,10 +207,16 @@ img {
 
 .hero-description,
 .page-description {
-  max-width: 44rem;
+  max-width: none;
   margin: 20px 0 0;
   color: var(--muted);
   font-size: clamp(1rem, 2vw, 1.16rem);
+}
+
+@media (min-width: 921px) {
+  .hero-description {
+    white-space: nowrap;
+  }
 }
 
 .hero-actions {
@@ -460,6 +466,38 @@ a.card-button:focus-visible {
   margin-top: 16px;
 }
 
+.contact-list {
+  display: grid;
+  gap: 14px;
+}
+
+.contact-item {
+  display: grid;
+  grid-template-columns: 5rem minmax(0, 1fr);
+  align-items: center;
+  gap: 18px;
+}
+
+.contact-label {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.contact-item a {
+  width: fit-content;
+  color: var(--accent-strong);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+  text-decoration: underline;
+  text-decoration-color: rgba(184, 49, 24, 0.3);
+  text-underline-offset: 4px;
+}
+
+.contact-item a:hover,
+.contact-item a:focus-visible {
+  text-decoration-color: currentColor;
+}
+
 .back-link,
 .secondary-link {
   padding: 0 18px;
@@ -608,6 +646,11 @@ a.card-button:focus-visible {
 
   .category-card p {
     font-size: 0.94rem;
+  }
+
+  .contact-item {
+    grid-template-columns: 1fr;
+    gap: 2px;
   }
 
   .works-grid {
